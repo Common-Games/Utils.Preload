@@ -34,10 +34,11 @@ Part of the **CGTK** Framework. (**C**ommon **G**ames **T**ool **K**it)
 <details>
 <summary> <b>Click here</b> </summary>
 
-- Open `Window/Package Manager`
-- Click <kbd>+</kbd>
-- <kbd>Add from Git URL</kbd>
-- `https://github.com/Walter-Hulsebos/Utils.Preload.git` <kbd>Add</kbd>
+1. Install [**CGTK.Utils.Extensions**](https://github.com/Common-Games/Utils.Extensions)
+2. Open `Window/Package Manager`
+3. Click <kbd>+</kbd>
+4. <kbd>Add from Git URL</kbd>
+5. `https://github.com/Walter-Hulsebos/Utils.Preload.git` <kbd>Add</kbd>
 
 <b>Note that Unity doesn't give you the ability to receive updates through the Package Manager this way, you will have to update manually!!</b>
 </details>
