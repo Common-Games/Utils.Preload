@@ -1,0 +1,14 @@
+{
+    "name": "CGTK.Utils.Preload",
+    "rootNamespace": "CGTK.Utils.Preload",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

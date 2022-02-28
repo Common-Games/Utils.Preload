@@ -1,0 +1,27 @@
+{
+  "name": "com.common-games.utils.preload",
+  "displayName": "CGTK.Utils.Preload",
+  "version": "0.0.0",
+  "unity": "2020.3",
+  "description": "Allows one to easily preload assets before entering the first scene.",
+  "keywords": [
+    "unity",
+    "unity3d",
+    "upm",
+    "common-games",
+    "utility"
+  ],
+  "homepage": "https://github.com/common-games/Utils.Preload.git",
+  "bugs": {
+    "url": "https://github.com/common-games/Utils.Preload/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/common-games/Utils.Preload.git"
+  },
+  "license": "The Unlicense",
+  "author": "Common-Games (https://github.com/Common-Games)",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
