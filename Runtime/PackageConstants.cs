@@ -13,7 +13,7 @@ namespace CGTK.Utils.Preload
         public const String PACKAGE_NAME    = PACKAGE_COMPANY + PACKAGE_GROUP + "preload";
         public const String PACKAGE_PATH    = "Packages/" + PACKAGE_NAME + "/";
         
-        public const String SETTINGS_FOLDER = "Assets/Settings/Resources/CGTK/";
+        public const String SETTINGS_FOLDER = "Assets/Settings/CGTK/";
         public const String SETTINGS_NAME   = "Utils.Preload.PreloadSettings.asset";
         public const String SETTINGS_PATH   = SETTINGS_FOLDER + SETTINGS_NAME;
     }
