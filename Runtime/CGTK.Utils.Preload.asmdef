@@ -1,7 +1,9 @@
 {
     "name": "CGTK.Utils.Preload",
     "rootNamespace": "CGTK.Utils.Preload",
-    "references": [],
+    "references": [
+        "CGTK.Utils.Extensions"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

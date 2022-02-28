@@ -1,33 +1,37 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Linq;
 
 using UnityEngine;
+
+using Object = UnityEngine.Object;
 
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
+using CGTK.Utils.Extensions.Collections;
+
 namespace CGTK.Utils.Preload
 {
     using static PackageConstants;
     
-    public class PreloadSettings : ScriptableObject
+    public class PreloadSettings : ScriptableObjectSingleton<PreloadSettings>
     {
-        [SerializeField] internal GameObject[] prefabs;
+        [SerializeField] internal GameObject[] prefabs = Array.Empty<GameObject>();
+
+        public static IEnumerable<GameObject> Prefabs => Instance.prefabs;
         
-        public static PreloadSettings Instance { get; private set; }
-
-        //[HideInInspector] public SettingsProvider settingsProvider; 
-
-        public void OnEnable()
-        {
-            //register Singleton
-        }
-
         public void OnValidate()
         {
+            #if UNITY_EDITOR
+            List<Object> _preloadedAssets = PlayerSettings.GetPreloadedAssets().ToList();
             
+            _preloadedAssets.AddRangeUnique(prefabs);
+
+            PlayerSettings.SetPreloadedAssets(_preloadedAssets.ToArray());
+            #endif
         }
     }
 
@@ -94,10 +98,8 @@ namespace CGTK.Utils.Preload
                 keywords = new HashSet<String>(collection: new[] { "preload", "bootstrap" })
             };
         }
-        
-        #endif
-        
     }
-
+    #endif
+    
     #endregion
 }
