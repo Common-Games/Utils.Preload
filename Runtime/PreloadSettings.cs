@@ -58,7 +58,7 @@ namespace CGTK.Utils.Preload
         {
             if (_settings != null) return _settings;
 
-            _settings = AssetDatabase.LoadAssetAtPath<PreloadSettings>(SETTINGS_PATH);
+            _settings = PreloadSettings.Instance; //AssetDatabase.LoadAssetAtPath<PreloadSettings>(SETTINGS_PATH);
             
             if (_settings != null) return _settings;
 
