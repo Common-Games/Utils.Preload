@@ -47,19 +47,23 @@ namespace CGTK.Utils.Preload
         [SettingsProvider]
         public static SettingsProvider LoadSettingsProvider()
         {
-            _settings = CreateSettings();
+            _settings = GetOrCreateSettings();
             
             _settingsSerialized ??= new SerializedObject(_settings);
 
             return _settingsProvider = CreateSettingsProvider();
         }
         
-        private static PreloadSettings CreateSettings()
+        private static PreloadSettings GetOrCreateSettings()
         {
             if (_settings != null) return _settings;
 
-            _settings = PreloadSettings.Instance; //AssetDatabase.LoadAssetAtPath<PreloadSettings>(SETTINGS_PATH);
+            _settings = PreloadSettings.Instance;
             
+            if (_settings != null) return _settings;
+            
+            _settings = AssetDatabase.LoadAssetAtPath<PreloadSettings>(SETTINGS_PATH);
+
             if (_settings != null) return _settings;
 
             if (!Directory.Exists(SETTINGS_PATH))
