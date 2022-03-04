@@ -3,8 +3,8 @@
 
 # CGTK.Utils.Preload
 
-![Version](https://img.shields.io/github/package-json/v/Walter-Hulsebos/Utils.Preload?style=for-the-badge)
-![Stars](https://img.shields.io/github/stars/Walter-Hulsebos/Utils.Preload?color=orange&style=for-the-badge)
+![Version](https://img.shields.io/github/package-json/v/Common-Games/Utils.Preload?style=for-the-badge)
+![Stars](https://img.shields.io/github/stars/Common-Games/Utils.Preload?color=orange&style=for-the-badge)
 [![Discord](https://img.shields.io/discord/763171539763462144?color=%237289DA&label=discord&logo=discord&style=for-the-badge)](https://discord.gg/S9wHQ96)
 
 </div>
@@ -24,9 +24,9 @@ Allows one to easily preload assets before entering the first scene."
 
 Part of the **CGTK** Framework. (**C**ommon **G**ames **T**ool **K**it)
 
-• [📚 Releases](https://github.com/Walter-Hulsebos/Utils.Preload/releases)
-• [💬 Issues](  https://github.com/Walter-Hulsebos/Utils.Preload/issues)
-• [📝 License]( https://github.com/Walter-Hulsebos/Utils.Preload/blob/stable/LICENSE)
+• [📚 Releases](https://github.com/Common-Games/Utils.Preload/releases)
+• [💬 Issues](  https://github.com/Common-Games/Utils.Preload/issues)
+• [📝 License]( https://github.com/Common-Games/Utils.Preload/blob/stable/LICENSE)
 ------
 # Installation
 
@@ -38,7 +38,7 @@ Part of the **CGTK** Framework. (**C**ommon **G**ames **T**ool **K**it)
 2. Open `Window/Package Manager`
 3. Click <kbd>+</kbd>
 4. <kbd>Add from Git URL</kbd>
-5. `https://github.com/Walter-Hulsebos/Utils.Preload.git` <kbd>Add</kbd>
+5. `https://github.com/Common-Games/Utils.Preload.git` <kbd>Add</kbd>
 
 <b>Note that Unity doesn't give you the ability to receive updates through the Package Manager this way, you will have to update manually!!</b>
 </details>
