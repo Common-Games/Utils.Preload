@@ -1,5 +1,6 @@
-using System.Collections.Generic;
 using System.Linq;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 using UnityEngine;
 
@@ -28,10 +29,19 @@ namespace CGTK.Utils.Preload
 			{
 				if (InstanceExists) return _internalInstance;
 
+				Object[] _preloadedAssets = PreloadedAssets;
+				foreach (Object _preloadedAsset in _preloadedAssets)
+				{
+					if (_preloadedAsset is T _singleton) //(_preloadedAsset.GetType() == typeof(T))
+					{
+						return _internalInstance = _singleton;
+					} 
+				}
+				
 				T[] _found = Resources.FindObjectsOfTypeAll<T>();
 				
 				//TODO: Ensured?
-				if (_found != null)
+				if (_found != null && _found.Length != 0)
 				{
 					if (_found[0] != null)
 					{
@@ -39,6 +49,8 @@ namespace CGTK.Utils.Preload
 					}	
 				}
 
+				Debug.LogWarning("Couldn't find Singleton Instance!");
+				
 				return null;
 				//return _internalInstance = CreateInstance<T>();
 			}
@@ -49,13 +61,13 @@ namespace CGTK.Utils.Preload
 				#if UNITY_EDITOR
 				if(_internalInstance == null) return;
 				
-				List<Object> _preloadedAssets = PlayerSettings.GetPreloadedAssets().ToList();
+				List<Object> _preloadedAssets = PreloadedAssets.ToList();
 
 				if (_preloadedAssets.Contains(_internalInstance)) return;
 
 				_preloadedAssets.Add(_internalInstance);
 
-				PlayerSettings.SetPreloadedAssets(_preloadedAssets.ToArray());
+				PreloadedAssets = _preloadedAssets.ToArray();
 				#endif
 			}
 		}
@@ -63,6 +75,14 @@ namespace CGTK.Utils.Preload
 		/// <summary> Whether a Instance of the Singleton exists </summary>
 		[PublicAPI]
 		public static bool InstanceExists => (_internalInstance != null);
+
+		private static Object[] PreloadedAssets
+		{
+			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			get => PlayerSettings.GetPreloadedAssets();
+			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			set => PlayerSettings.SetPreloadedAssets(value);
+		}
 
 		#endregion
 
