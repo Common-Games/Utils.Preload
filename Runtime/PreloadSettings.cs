@@ -56,27 +56,39 @@ namespace CGTK.Utils.Preload
         
         private static PreloadSettings GetOrCreateSettings()
         {
-            if (_settings != null) return _settings;
-
-            _settings = PreloadSettings.Instance;
-            
-            if (_settings != null) return _settings;
-            
-            _settings = AssetDatabase.LoadAssetAtPath<PreloadSettings>(SETTINGS_PATH);
-
-            if (_settings != null) return _settings;
-
-            if (!Directory.Exists(SETTINGS_PATH))
+            try
             {
-                Directory.CreateDirectory(SETTINGS_PATH);
-            }
-            
-            _settings = ScriptableObject.CreateInstance<PreloadSettings>();
-            
-            AssetDatabase.CreateAsset(_settings, SETTINGS_PATH);
-            AssetDatabase.SaveAssets();
+                if (_settings != null) return _settings;
 
-            return _settings;
+                _settings = PreloadSettings.Instance;
+
+                if (_settings != null) return _settings;
+
+                _settings = AssetDatabase.LoadAssetAtPath<PreloadSettings>(SETTINGS_PATH);
+                if (_settings != null)
+                {
+                    Debug.Log("FOUND SETTINGS C, RETURNING");
+
+                    return _settings;
+                }
+
+                if (!Directory.Exists(SETTINGS_PATH))
+                {
+                    Directory.CreateDirectory(SETTINGS_PATH);
+                }
+
+                _settings = ScriptableObject.CreateInstance<PreloadSettings>();
+
+                AssetDatabase.CreateAsset(_settings, SETTINGS_PATH);
+                AssetDatabase.SaveAssets();
+
+                return _settings;
+            }
+            catch (Exception _exception)
+            {
+                Debug.LogError(_exception);
+                throw;
+            }
         }
 
         private static SettingsProvider CreateSettingsProvider()
