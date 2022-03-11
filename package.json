@@ -1,7 +1,7 @@
 {
   "name": "com.common-games.utils.preload",
   "displayName": "CGTK.Utils.Preload",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "unity": "2020.3",
   "description": "Allows one to easily preload assets before entering the first scene.",
   "keywords": [
