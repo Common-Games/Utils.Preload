@@ -29,6 +29,7 @@ namespace CGTK.Utils.Preload
 			{
 				if (InstanceExists) return _internalInstance;
 
+				#if UNITY_EDITOR
 				Object[] _preloadedAssets = PreloadedAssets;
 				foreach (Object _preloadedAsset in _preloadedAssets)
 				{
@@ -37,6 +38,7 @@ namespace CGTK.Utils.Preload
 						return _internalInstance = _singleton;
 					} 
 				}
+				#endif
 				
 				T[] _found = Resources.FindObjectsOfTypeAll<T>();
 				
@@ -76,6 +78,7 @@ namespace CGTK.Utils.Preload
 		[PublicAPI]
 		public static bool InstanceExists => (_internalInstance != null);
 
+		#if UNITY_EDITOR
 		private static Object[] PreloadedAssets
 		{
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -83,6 +86,7 @@ namespace CGTK.Utils.Preload
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
 			set => PlayerSettings.SetPreloadedAssets(value);
 		}
+		#endif
 
 		#endregion
 

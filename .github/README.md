@@ -16,7 +16,8 @@
 <tr>
 <td>
 
-Allows one to easily preload assets before entering the first scene."
+Easily preload assets before entering the first scene. <br>
+Just go to the Project Settings to add the prefabs you want.
 
 </td>
 </tr>
@@ -48,7 +49,8 @@ Part of the **CGTK** Framework. (**C**ommon **G**ames **T**ool **K**it)
 *Work In Progress*
 
 # Examples
-*Work In Progress*
+[<img src=".github/img/Utils.Preload.png" width="1024" height="512">](https://github.com/Common-Games/Utils.Preload)
+
 
 # License
 
